@@ -8,7 +8,12 @@ namespace BusyIndicator
     {
         public static void Delay(this Dispatcher dispatcher, int delay, Action<object> action, object parm = null)
         {
-            Task.Delay(delay).ContinueWith((t) =>
+#if NET40
+            Task task = TaskEx.Delay(delay);
+#else
+            Task task = Task.Delay(delay);
+#endif
+            task.ContinueWith((t) =>
             {
                 dispatcher.Invoke(action, parm);
             });

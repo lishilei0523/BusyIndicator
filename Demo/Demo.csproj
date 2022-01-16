@@ -1,8 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
-
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFrameworks>net46;netcoreapp3.1;net5.0-windows</TargetFrameworks>
+    <TargetFrameworks>net40;net45;net46;netcoreapp3.1;net5.0-windows</TargetFrameworks>
     <UseWPF>true</UseWPF>
     <GenerateAssemblyInfo>False</GenerateAssemblyInfo>
     <ApplicationIcon>Icon.ico</ApplicationIcon>
@@ -11,5 +10,4 @@
   <ItemGroup>
     <ProjectReference Include="..\BusyIndicator\BusyIndicator.csproj" />
   </ItemGroup>
-  
-  </Project>
+</Project>

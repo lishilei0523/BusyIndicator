@@ -1,8 +1,8 @@
 ﻿using BusyIndicator;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Text.RegularExpressions;
 using System.Windows.Input;
 
 namespace Demo
@@ -35,7 +35,11 @@ namespace Demo
             }
 
             BusyIndicator.IsBusy = true;
+#if NET40
+            await TaskEx.Delay(System.TimeSpan.FromSeconds(duration));
+#else
             await Task.Delay(System.TimeSpan.FromSeconds(duration));
+#endif
             BusyIndicator.IsBusy = false;
         }
 
